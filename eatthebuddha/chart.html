@@ -1,0 +1,71 @@
+<style type="text/css">
+    body{
+        font-family: Verdana;
+        text-align: center;
+    }
+</style>
+<div style="width: 30%;">
+<div style="text-align: center;"><h2 style="width: 100px; font-size: 12px; position: absolute; top: 160px; left: 160px;">EAT THE BUDDHA &trade;: Philosophy + Practice</h2></div>
+<canvas id="myChart" width="400" height="400"></canvas>
+<div id="legend" style="text-align: left;"></div>
+</div>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+<script type="text/javascript" src="Chart.js"></script>
+<script type="text/javascript">
+    var data = [{
+        value: 10,
+        color: "#D38C3D",
+        label: "Nutritional Harmony"
+    }, {
+        value: 10,
+        color: "#E0B83D",
+        label: "Breathwork"
+    }, {
+        value: 10,
+        color: "#A5B339",
+        label: "Ritual"
+    }, {
+        value: 10,
+        color: "#519447",
+        label: "Environment"
+    }, {
+        value: 10,
+        color: "#398E9A",
+        label: "Communication + Action"
+    }, {
+        value: 10,
+        color: "#4E96C6",
+        label: "Music + Movement"
+    }, {
+        value: 10,
+        color: "#6694C6",
+        label: "Nourishing Others"
+    }, {
+        value: 10,
+        color: "#606DA4",
+        label: "Creative Expression"
+    }, {
+        value: 10,
+        color: "#9B6090",
+        label: "Food for Thought"
+    }, {
+        value: 10,
+        color: "#C44A57",
+        label: "Mother Nature"
+    }
+
+    ]
+
+    var options = {
+        animation: true,
+        legendTemplate : "<ul class=\"<%=name.toLowerCase()%>-legend\" style=\"list-style-type: none;\"><% for (var i=0; i<segments.length; i++){%><li><span style=\"background-color:<%=segments[i].fillColor%>\">&nbsp;&nbsp;&nbsp;</span>&nbsp;&nbsp;&nbsp;<%if(segments[i].label){%><%=segments[i].label%><%}%></li><%}%></ul>"
+    };
+
+    //Get the context of the canvas element we want to select
+    var c = $('#myChart');
+    var ct = c.get(0).getContext('2d');
+    var ctx = document.getElementById("myChart").getContext("2d");
+    /*************************************************************************/
+    myNewChart = new Chart(ct).Doughnut(data, options);
+document.getElementById("legend").innerHTML = myNewChart.generateLegend();
+</script>
